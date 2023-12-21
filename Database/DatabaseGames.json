@@ -1,0 +1,34 @@
+[
+  {
+    "namaGame": "Free Fire",
+    "namaCurrency": "Dm",
+    "items": [
+      {
+        "namaItem": "booyapass",
+        "harga": 40000.0
+      },
+      {
+        "namaItem": "1000 dm",
+        "harga": 1000000.0
+      },
+      {
+        "namaItem": "2000 dm",
+        "harga": 5555555.0
+      }
+    ]
+  },
+  {
+    "namaGame": "Pubg",
+    "namaCurrency": "Dm",
+    "items": [
+      {
+        "namaItem": "Bundle",
+        "harga": 11111.0
+      },
+      {
+        "namaItem": "1000 Uc",
+        "harga": 100000.0
+      }
+    ]
+  }
+]

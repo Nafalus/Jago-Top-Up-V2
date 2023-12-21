@@ -1,0 +1,20 @@
+[
+  {
+    "pin": 1111,
+    "saldo": 0.0,
+    "email": "Budi",
+    "password": "1234"
+  },
+  {
+    "pin": 1111,
+    "saldo": 0.0,
+    "email": "Bima",
+    "password": "1234"
+  },
+  {
+    "pin": 1111,
+    "saldo": 0.0,
+    "email": "Franky",
+    "password": "1234"
+  }
+]

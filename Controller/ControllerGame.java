@@ -1,0 +1,57 @@
+// ControllerGame.java
+package Controller;
+
+import Model.ModelGames;
+import Node.NodeGames;
+
+import java.util.ArrayList;
+
+public class ControllerGame {
+    private ModelGames modelGames;
+
+    public ControllerGame(ModelGames modelGames) {
+        this.modelGames = modelGames;
+    }
+
+    public ArrayList<NodeGames> viewAllGames() {
+        return modelGames.getAllGames();
+    }
+
+    public void insertGame(String namaGame, String namaCurrency) {
+        NodeGames game = new NodeGames(namaGame, namaCurrency);
+        modelGames.addGames(game);
+    }
+
+    public void insertItem(String namaGame, String namaItem, double harga) {
+        NodeGames game = modelGames.searchGame(namaGame);
+        if (game != null) {
+            game.addItem(namaItem, harga);
+            modelGames.updateGame(namaGame, game);
+        } else {
+            System.out.println("Game tidak ditemukan!");
+        }
+    }
+
+    public void updateGames(String namaGame, String newCurrency) {
+        NodeGames game = modelGames.searchGame(namaGame);
+        if (game != null) {
+            game.setNamaCurrency(newCurrency);
+            modelGames.updateGame(namaGame, game);
+        } else {
+            System.out.println("Game tidak ditemukan!");
+        }
+    }
+
+    public void deleteGame(String namaGame) {
+        NodeGames game = modelGames.searchGame(namaGame);
+        if (game != null) {
+            modelGames.deleteGame(game);
+        } else {
+            System.out.println("Game tidak ditemukan!");
+        }
+    }
+
+    public NodeGames searchGames(String namaGame) {
+        return modelGames.searchGame(namaGame);
+    }
+}
