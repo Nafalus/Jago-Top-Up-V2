@@ -29,7 +29,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         int pilih;
         x : while(true){
-        System.out.println("1. Daftar woi");
+        System.out.println("1. Daftar");
         System.out.println("2. Login");
         System.out.println("3. Exit");
         System.out.print("Masukkan Pilihan : ");
