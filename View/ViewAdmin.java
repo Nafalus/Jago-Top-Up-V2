@@ -26,10 +26,11 @@ public class ViewAdmin {
             System.out.println("|2. Lihat Game\t\t|");
             System.out.println("|3. Tambah Item Game\t|");
             System.out.println("|4. Update Game\t\t|");
-            System.out.println("|5. Hapus Game\t\t|");
+            System.out.println("|5. Delete Game\t\t|");
             System.out.println("|6. Cari Game\t\t|");
             System.out.println("|7. Lihat Semua User\t|");
-            System.out.println("|8. Kembali\t\t|");
+            System.out.println("|8. Update User\t\t|");
+            System.out.println("|9. Delete User\t\t|");
             System.out.println("-------------------------");
             System.out.print("Masukkan Pilihan : ");
             pilih = input.nextInt();
@@ -96,14 +97,33 @@ public class ViewAdmin {
                 case 7:
                     System.out.println("- Menampilkan Data User -");
                     for (NodeUser user : controllerUser.viewAllUser()) {
-                        System.out.println("Username : " + user.email);
-                        System.out.println("Password : " + user.password);
-                        System.out.println("Pin\t : " + user.pin);
-                        System.out.println("Saldo\t : " + user.saldo);
+                        System.out.println("Email : " + user.getEmail());
+                        System.out.println("Password : " + user.getPassword());
+                        System.out.println("Pin\t : " + user.getPin());
+                        System.out.println("Saldo\t : " + user.getSaldo());
                         System.out.println("==============================");
                     }
                     break;
                 case 8:
+                    System.out.println(" - Update User - ");
+                    System.out.print("Masukkan Email : "); String Email = input.nextLine();
+                    NodeUser user = controllerUser.searchUser(Email);
+                    if (user == null) {
+                        System.out.println("Pengguna Tidak Ditemukan");
+                    }
+                    else {
+                        System.out.print("Masukkan Password Baru : "); String newPass = input.nextLine(); 
+                        System.out.print("Masukkan PIN Baru : "); int newPIN = input.nextInt();
+                        controllerUser.updateUser(Email, newPass, newPIN);
+                    }
+                    break;
+                case 9 :
+                    System.out.println(" - Delete User - ");
+                    System.out.print("Masukkan Email : ");
+                    Email = input.nextLine();
+                    controllerUser.deleteUser(Email);
+                    break;
+                case 10 :
                     System.out.println("Kembali");
                     break x;
                 default:

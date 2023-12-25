@@ -1,20 +1,32 @@
 [
   {
-    "pin": 1111,
-    "saldo": 0.0,
+    "PIN": 5678,
+    "Saldo": 0.0,
     "email": "Budi",
     "password": "1234"
   },
   {
-    "pin": 1111,
-    "saldo": 0.0,
+    "PIN": 3214,
+    "Saldo": 80000.0,
     "email": "Bima",
-    "password": "1234"
+    "password": "bima1234"
   },
   {
-    "pin": 1111,
-    "saldo": 0.0,
+    "PIN": 4567,
+    "Saldo": 0.0,
     "email": "Franky",
-    "password": "1234"
+    "password": "futa123"
+  },
+  {
+    "PIN": 7890,
+    "Saldo": 155000.0,
+    "email": "nopal",
+    "password": "wompwomp123"
+  },
+  {
+    "PIN": 3456,
+    "Saldo": 0.0,
+    "email": "gendy",
+    "password": "goib123"
   }
 ]

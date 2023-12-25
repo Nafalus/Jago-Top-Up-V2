@@ -3,9 +3,9 @@ package Node;
 import java.util.ArrayList;
 
 public class NodeGames {
-    public String namaGame;
-    public String namaCurrency;
-    public ArrayList<Item> items;
+    private String namaGame;
+    private String namaCurrency;
+    private ArrayList<Item> items;
 
     public NodeGames(String namaGame, String namaCurrency) {
         this.namaGame = namaGame;
@@ -44,8 +44,8 @@ public class NodeGames {
     }
 
     public static class Item {
-        public String namaItem;
-        public double harga;
+        private String namaItem;
+        private double harga;
 
         public Item(String namaItem, double harga) {
             this.namaItem = namaItem;

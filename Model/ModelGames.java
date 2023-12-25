@@ -25,7 +25,7 @@ public class ModelGames {
     public NodeGames searchGame(String namaGame) {
         NodeGames game = null;
         for (NodeGames Game : listGame) {
-            if (Game.namaGame.contains(namaGame)) {
+            if (Game.getNamaGame().equalsIgnoreCase(namaGame)) {
                 return Game;
             }
         }

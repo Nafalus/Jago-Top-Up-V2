@@ -1,8 +1,8 @@
 package Node;
 
 public class NodeAdmin {
-    public String email;
-    public String password;
+    private String email;
+    private String password;
 
     public NodeAdmin(String email, String password) {
         this.email = email;

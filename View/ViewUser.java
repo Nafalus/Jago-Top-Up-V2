@@ -2,18 +2,23 @@ package View;
 
 import Controller.ControllerUser;
 import Controller.ControllerGame;
-import Node.NodeUser;
+import Node.NodeGames;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ViewUser {
     private ControllerUser controllerUser;
+    private ControllerGame controllerGame;
+    private Locale formatRupiah;
 
-    public ViewUser(ControllerUser controllerUser){
+    public ViewUser(ControllerUser controllerUser, ControllerGame controllerGame){
         this.controllerUser = controllerUser;
+        this.controllerGame = controllerGame;
+        this.formatRupiah = new Locale("id", "ID");
     }
 
-    public void MenuUser(){
+    public void MenuUser(String Email){
         Scanner input = new Scanner(System.in);
         int pilih;
         x: while (true){
@@ -22,10 +27,12 @@ public class ViewUser {
         System.out.println("-------------------------");
         System.out.println("1. Cari Game\t\t|");
         System.out.println("2. Lihat Game\t\t|");
-        System.out.println("3. Update Akun\t\t|");
-        System.out.println("4. Isi Saldo\t\t|");
-        System.out.println("5. Lihat History\t\t|");
-        System.out.println("6. Kembali\t\t|");
+        System.out.println("3. Info Akun\t\t|");
+        System.out.println("4. Update Akun\t\t|");
+        System.out.println("5. Isi Saldo\t\t|");
+        System.out.println("6. Cek Saldo\t\t|");
+        System.out.println("7. Histori Top Up\t|");
+        System.out.println("8. Kembali\t\t|");
         System.out.println("-------------------------");
         System.out.print("Pilih : ");
         pilih = input.nextInt();
@@ -33,98 +40,60 @@ public class ViewUser {
         System.out.println("-------------------------");
             switch (pilih) {
                 case 1:
-                    insertUser();
+                System.out.println("- Pencarian Game -");
+                    System.out.print("Masukkan Nama Game : ");
+                    String namaGame = input.nextLine();
+                    NodeGames game = controllerGame.searchGames(namaGame);
+                    if (game != null) {
+                        game.viewGame();
+                    } else {
+                        System.out.println("Game Tidak Ditemukan!");
+                    }
                     break;
                 case 2:
-                    viewUser();
+                    System.out.println("- Menampilkan Data Game -");
+                    for (NodeGames gameList : controllerGame.viewAllGames()) {
+                        gameList.viewGame();
+                        System.out.println("==============================");
+                    }
                     break;
                 case 3:
-                    updateUser();
+                    System.out.println("- Info Akun -");
+                    controllerUser.searchUser(Email).viewUser();
                     break;
                 case 4:
-                    deleteUser();
+                    System.out.println("- Update Akun -");
+                    System.out.print("Masukkan Password Baru : "); String newPass = input.nextLine(); 
+                    System.out.print("Masukkan PIN Baru : "); int newPIN = input.nextInt();
+                    controllerUser.updateUser(Email, newPass, newPIN);
                     break;
                 case 5:
-                    searchUser();
+                    System.out.println(" - Isi Saldo -");
+                    System.out.println("1. Rp. 5.000");
+                    System.out.println("2. Rp. 10.000");
+                    System.out.println("3. Rp. 15.000");
+                    System.out.println("4. Rp. 20.000");
+                    System.out.println("5. Rp. 30.000");
+                    System.out.println("6. Rp. 50.000");
+                    System.out.println("7. Rp. 100.000");
+                    System.out.println("8. Rp. 200.000");
+                    System.out.print("Pilihan Anda : "); int pilihSaldo = input.nextInt();
+                    controllerUser.isiSaldo(Email, pilihSaldo);
                     break;
                 case 6:
+                    System.out.println(" - Cek Saldo -");
+                    System.out.println("Sisa Saldo anda tersisa : " + String.format(formatRupiah, "Rp. %,.2f", controllerUser.searchUser(Email).getSaldo()));
+                    break;
+                case 7:
+                    //Fitur Histori Masih Belum Dibuat!!!
+                    break;
+                case 8:
                     System.out.println("Program berakhir");
                     break x;
                 default:
                     System.out.println("INVALID INPUT!");
                     break;
             }
-        }
-    }
-
-    public void viewUser(){
-        System.out.println("- Menampilkan Data User -");
-        for(NodeUser user : controllerUser.viewAllUser()){
-            System.out.println("Username : "+user.email);
-            System.out.println("Password : "+user.password);
-            System.out.println("Pin : "+user.pin);
-            System.out.println("Saldo  : "+user.saldo);
-            System.out.println("==============================");
-        }
-    }
-
-    public void insertUser(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("- Tambah User -");
-        System.out.print("Masukkan Email : ");
-        String email = input.nextLine();
-        System.out.print("Masukkan Password : ");
-        String password = input.nextLine();
-        System.out.print("Masukkan Pin : ");
-        int pin = input.nextInt();
-        double saldo = 0;
-        System.out.println("Berhasil Mendaftar");
-        controllerUser.insertUser(email, password, pin, saldo);
-    }
-
-    public void updateUser(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("- Update User -");
-        System.out.print("Masukkan Username : ");
-        String username = input.nextLine();
-        NodeUser user = controllerUser.searchUser(username);
-        if(user == null){
-            System.out.println("PENGGUNA TIDAK DITEMUKAN!");
-        }else{
-            System.out.println("Ubah No Telp : ");
-            String newTelp = input.nextLine();
-            controllerUser.updateUser(username, newTelp); 
-        }
-    }
-
-    public void deleteUser(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("- Hapus User -");
-        System.out.print("Masukkan Username : ");
-        String username = input.nextLine();
-        NodeUser user = controllerUser.searchUser(username);
-        if(user == null){
-            System.out.println("PENGGUNA TIDAK DITEMUKAN!");
-        }else{
-            System.out.println("- User Berhasil Di Hapus -");
-            controllerUser.deleteUser(username);;
-        }
-    }
-
-    public void searchUser(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("- Pencarian User -");
-        System.out.print("Masukkan Username : ");
-        String username = input.nextLine();
-        NodeUser user = controllerUser.searchUser(username);
-        if (user == null) {
-            System.out.println("PENGGUNA TIDAK DITEMUKAN!");
-        }else{
-            System.out.println("- User Ditemukan -");
-            System.out.println("Username : "+user.email);
-            System.out.println("Password : "+user.password);
-            System.out.println("Nama : "+user.pin);
-            System.out.println("NIK  : "+user.saldo);
         }
     }
 }

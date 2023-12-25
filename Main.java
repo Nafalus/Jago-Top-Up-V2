@@ -9,6 +9,7 @@ import Controller.ControllerAdmin;
 import Controller.ControllerGame;
 import Controller.ControllerLogin;
 import View.ViewAdmin;
+import View.ViewDaftar;
 import View.ViewLogin;
 import View.ViewUser;
 
@@ -18,12 +19,13 @@ public class Main {
         ModelGames modelGames = new ModelGames();
         ModelAdmin modelAdmin = new ModelAdmin();
         ControllerUser controllerUser = new ControllerUser(modeluser);
-        ViewUser viewuser = new ViewUser(controllerUser);
         ControllerGame controllerGame = new ControllerGame(modelGames);
+        ViewUser viewuser = new ViewUser(controllerUser, controllerGame);
         ViewAdmin viewAdmin = new ViewAdmin(controllerUser, controllerGame);
         ControllerAdmin controllerAdmin = new ControllerAdmin(modelAdmin);
         ControllerLogin controllerLogin = new ControllerLogin(viewAdmin, viewuser);
         ViewLogin viewLogin = new ViewLogin(controllerUser, controllerAdmin, controllerLogin);
+        ViewDaftar viewDaftar = new ViewDaftar(controllerUser);
 
 
         Scanner input = new Scanner(System.in);
@@ -36,23 +38,10 @@ public class Main {
         pilih = input.nextInt();
             switch (pilih) {
                 case 1:
-                    input.nextLine();
-                    System.out.println("Masukkan Email : ");
-                    String email = input.nextLine();
-                    System.out.println("Masukkan Password : ");
-                    String password = input.nextLine();
-                    System.out.println("Masukkan Pin : ");
-                    int pin = input.nextInt();
-                    double saldo = 0;
-                    controllerUser.insertUser(email, password,pin,saldo);
+                viewDaftar.Daftar();
                     break;
                 case 2:
-                    input.nextLine();
-                    System.out.println("Masukkan Email : ");
-                    email = input.nextLine();
-                    System.out.println("Masukkan Password : ");
-                    password = input.nextLine();
-                    controllerLogin.ValidasiLogin(email, password);
+                viewLogin.Login();
                     break;
                 case 3:
                     System.out.println("Program Berakhir");
@@ -62,5 +51,6 @@ public class Main {
                     break;
             }
         }
+        input.close();
     }
 }

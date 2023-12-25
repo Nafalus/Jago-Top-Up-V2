@@ -22,7 +22,7 @@ public class ControllerLogin {
         if (listUsers != null) {
             for (NodeUser user : listUsers) {
                 if (user.getEmail().equalsIgnoreCase(email) && user.getPassword().equalsIgnoreCase(password)) {
-                    viewUser.MenuUser();
+                    viewUser.MenuUser(email);
                     return;
                 }
             }

@@ -23,7 +23,7 @@ public class ModelUser {
     public NodeUser searchUser(String email){
         NodeUser user = null;
         for (NodeUser akun : ListUser){
-            if (akun.email.contains(email)){
+            if (akun.getEmail().equalsIgnoreCase(email)){
                 return akun;
             }
         }
@@ -36,10 +36,12 @@ public class ModelUser {
 
     public void updateUser(String username, NodeUser pengguna){
         ListUser.contains(pengguna);
+        commitData();
     }
 
     public void deleteUser(NodeUser user){
         ListUser.remove(user);
+        commitData();
     }
 
     private void loadData(){
