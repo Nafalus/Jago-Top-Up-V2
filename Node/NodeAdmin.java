@@ -1,6 +1,8 @@
 package Node;
 
-public class NodeAdmin {
+import Interface.Node;
+
+public class NodeAdmin implements Node{
     private String email;
     private String password;
 

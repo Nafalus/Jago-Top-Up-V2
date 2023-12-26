@@ -1,41 +1,43 @@
 package View;
 
 import java.util.Scanner;
-import Controller.ControllerGame;
-import Controller.ControllerUser;
-import Node.NodeGames;
-import Node.NodeUser;
+import Controller.*;
+import Node.*;
 
 public class ViewAdmin {
     private ControllerGame controllerGame;
     private ControllerUser controllerUser;
+    private ControllerHarga controllerHarga;
 
-    public ViewAdmin(ControllerUser controllerUser, ControllerGame controllerGame) {
+    public ViewAdmin(ControllerUser controllerUser, ControllerGame controllerGame, ControllerHarga controllerHarga) {
         this.controllerUser = controllerUser;
         this.controllerGame = controllerGame;
+        this.controllerHarga = controllerHarga;
     }
 
     public void MenuAdmin() {
         Scanner input = new Scanner(System.in);
         int pilih;
         x: while (true) {
-            System.out.println("-------------------------");
-            System.out.println("|\tMenu Admin\t|");
-            System.out.println("-------------------------");
-            System.out.println("|1. Tambah Game\t\t|");
-            System.out.println("|2. Lihat Game\t\t|");
-            System.out.println("|3. Tambah Item Game\t|");
-            System.out.println("|4. Update Game\t\t|");
-            System.out.println("|5. Delete Game\t\t|");
-            System.out.println("|6. Cari Game\t\t|");
-            System.out.println("|7. Lihat Semua User\t|");
-            System.out.println("|8. Update User\t\t|");
-            System.out.println("|9. Delete User\t\t|");
-            System.out.println("-------------------------");
+            System.out.println("--------------------------------");
+            System.out.println("|\tMenu Admin\t\t|");
+            System.out.println("--------------------------------");
+            System.out.println("|1. Tambah Game\t\t\t|");
+            System.out.println("|2. Lihat Game\t\t\t|");
+            System.out.println("|3. Tambah Item Game\t\t|");
+            System.out.println("|4. Update Game\t\t\t|");
+            System.out.println("|5. Delete Game\t\t\t|");
+            System.out.println("|6. Cari Game\t\t\t|");
+            System.out.println("|7. Lihat Semua User\t\t|");
+            System.out.println("|8. Update User\t\t\t|");
+            System.out.println("|9. Delete User\t\t\t|");
+            System.out.println("|10. Tambah Daftar Harga\t|");
+            System.out.println("|11. Logout\t\t\t|");
+            System.out.println("--------------------------------");
             System.out.print("Masukkan Pilihan : ");
             pilih = input.nextInt();
             input.nextLine();
-            System.out.println("-------------------------");
+            System.out.println("--------------------------------");
             switch (pilih) {
                 case 1:
                     System.out.println("- Tambah Game -");
@@ -124,7 +126,11 @@ public class ViewAdmin {
                     controllerUser.deleteUser(Email);
                     break;
                 case 10 :
-                    System.out.println("Kembali");
+                    System.out.print("Masukkan Harga Baru : "); double newHarga = input.nextDouble();
+                    controllerHarga.insertHarga(newHarga);
+                    break;
+                case 11 :
+                    System.out.println(" - Anda Telah Logout - ");
                     break x;
                 default:
                     System.out.println("INVALID INPUT!");

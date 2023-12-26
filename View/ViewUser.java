@@ -32,7 +32,7 @@ public class ViewUser {
         System.out.println("5. Isi Saldo\t\t|");
         System.out.println("6. Cek Saldo\t\t|");
         System.out.println("7. Histori Top Up\t|");
-        System.out.println("8. Kembali\t\t|");
+        System.out.println("8. Logout\t\t|");
         System.out.println("-------------------------");
         System.out.print("Pilih : ");
         pilih = input.nextInt();
@@ -68,6 +68,7 @@ public class ViewUser {
                     controllerUser.updateUser(Email, newPass, newPIN);
                     break;
                 case 5:
+                    //Rencana akan dirombak by Nopal
                     System.out.println(" - Isi Saldo -");
                     System.out.println("1. Rp. 5.000");
                     System.out.println("2. Rp. 10.000");
@@ -85,10 +86,10 @@ public class ViewUser {
                     System.out.println("Sisa Saldo anda tersisa : " + String.format(formatRupiah, "Rp. %,.2f", controllerUser.searchUser(Email).getSaldo()));
                     break;
                 case 7:
-                    //Fitur Histori Masih Belum Dibuat!!!
+                    //Fitur Histori Masih Belum Dibuat!!! By Nopal
                     break;
                 case 8:
-                    System.out.println("Program berakhir");
+                    System.out.println(" - Anda Telah Logout - ");
                     break x;
                 default:
                     System.out.println("INVALID INPUT!");

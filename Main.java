@@ -1,27 +1,19 @@
-import Model.ModelUser;
-import Model.ModelAdmin;
-import Model.ModelGames;
-import Controller.ControllerUser;
-
 import java.util.Scanner;
-
-import Controller.ControllerAdmin;
-import Controller.ControllerGame;
-import Controller.ControllerLogin;
-import View.ViewAdmin;
-import View.ViewDaftar;
-import View.ViewLogin;
-import View.ViewUser;
+import Model.*;
+import Controller.*;
+import View.*;
 
 public class Main {
     public static void main(String[] args) {
         ModelUser modeluser = new ModelUser();
         ModelGames modelGames = new ModelGames();
         ModelAdmin modelAdmin = new ModelAdmin();
+        ModelHarga modelHarga = new ModelHarga();
         ControllerUser controllerUser = new ControllerUser(modeluser);
         ControllerGame controllerGame = new ControllerGame(modelGames);
+        ControllerHarga controllerHarga = new ControllerHarga(modelHarga);
         ViewUser viewuser = new ViewUser(controllerUser, controllerGame);
-        ViewAdmin viewAdmin = new ViewAdmin(controllerUser, controllerGame);
+        ViewAdmin viewAdmin = new ViewAdmin(controllerUser, controllerGame, controllerHarga);
         ControllerAdmin controllerAdmin = new ControllerAdmin(modelAdmin);
         ControllerLogin controllerLogin = new ControllerLogin(viewAdmin, viewuser);
         ViewLogin viewLogin = new ViewLogin(controllerUser, controllerAdmin, controllerLogin);

@@ -4,14 +4,35 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class NodeUser extends NodeAdmin{
+import Interface.Node;
+
+public class NodeUser implements Node{
+    private String email;
+    private String password;
     private int PIN;
     private double Saldo;
 
     public NodeUser(String email, String password, int PIN, double Saldo) {
-        super(email, password);
+        this.email = email;
+        this.password = password;
         this.PIN = PIN;
         this.Saldo = Saldo;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public String getEmail(){
+        return this.email;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
+    }
+
+    public String getPassword(){
+        return this.password;
     }
 
     public void viewUser(){

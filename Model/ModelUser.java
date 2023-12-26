@@ -34,8 +34,8 @@ public class ModelUser {
         return ListUser;
     }
 
-    public void updateUser(String username, NodeUser pengguna){
-        ListUser.contains(pengguna);
+    public void updateUser(String username, NodeUser user){
+        ListUser.contains(user);
         commitData();
     }
 
@@ -45,8 +45,7 @@ public class ModelUser {
     }
 
     private void loadData(){
-        ListUser = modelGSONUser.readFromFile(new TypeToken<ArrayList<NodeUser>>()
-            {}.getType());
+        ListUser = modelGSONUser.readFromFile(new TypeToken<ArrayList<NodeUser>>(){}.getType());
     }
 
     public void commitData(){
