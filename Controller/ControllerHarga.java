@@ -24,4 +24,17 @@ public class ControllerHarga {
     public NodeHarga searchHarga(int id){
         return modelHarga.searchHarga(id);
     }
+
+    public void deleteharga(int id){
+        NodeHarga harga = modelHarga.searchHarga(id);
+        if (harga == null) {
+            System.out.println("List Harga Tidak Ditemukan");
+        } else {
+            modelHarga.deleteHarga(harga);
+            ArrayList<NodeHarga> replaceHarga = new ArrayList<NodeHarga>();
+            for (NodeHarga nodeHarga : modelHarga.getAllHarga()) {
+                // replaceHarga.set
+            }
+        }
+    }
 }

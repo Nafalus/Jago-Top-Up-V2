@@ -58,6 +58,10 @@ public class ModelHarga {
         }
     }
 
+    public void replaceList(ArrayList<NodeHarga> replaceHarga){
+        this.listHarga = replaceHarga;
+    }
+
     private void loadData(){
         listHarga = modelGSONHarga.readFromFile(new TypeToken<ArrayList<NodeHarga>>(){}.getType());
     }

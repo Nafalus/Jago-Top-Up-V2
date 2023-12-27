@@ -39,6 +39,10 @@ public class NodeGames {
         return this.namaCurrency;
     }
 
+    public ArrayList<Item> getItem(){
+        return this.items;
+    }
+
     public void addItem(String namaItem, double harga) {
         items.add(new Item(namaItem, harga));
     }

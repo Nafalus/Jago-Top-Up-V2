@@ -35,12 +35,12 @@ public class NodeUser implements Node{
         return this.password;
     }
 
-    public void viewUser(){
-        System.out.println("Email : " + getEmail());
-        System.out.println("Password : " + getPassword());
-        System.out.println("Pin  : " + this.PIN);
-        System.out.println("Saldo : " + this.Saldo);
-    }
+    // public void viewUser(){
+    //     System.out.println("Email : " + getEmail());
+    //     System.out.println("Password : " + getPassword());
+    //     System.out.println("Pin  : " + this.PIN);
+    //     System.out.println("Saldo : " + this.Saldo);
+    // }
 
     public void setPIN(int PIN){
         this.PIN = PIN;

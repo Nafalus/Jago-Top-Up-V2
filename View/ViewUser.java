@@ -1,8 +1,8 @@
 package View;
 
-import Controller.ControllerUser;
-import Controller.ControllerGame;
+import Controller.*;
 import Node.NodeGames;
+import Node.NodeGames.Item;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -45,7 +45,13 @@ public class ViewUser {
                     String namaGame = input.nextLine();
                     NodeGames game = controllerGame.searchGames(namaGame);
                     if (game != null) {
-                        game.viewGame();
+                        System.out.println("Nama Game: " + game.getNamaGame());
+                        System.out.println("Nama Currency: " + game.getNamaCurrency());
+                        System.out.println("Items:");
+                        for (Item item : game.getItem()) {
+                            System.out.println("  - Nama Item: " + item.getNamaItem());
+                            System.out.println("    Harga: " + item.getHarga());
+                        }
                     } else {
                         System.out.println("Game Tidak Ditemukan!");
                     }
@@ -53,13 +59,22 @@ public class ViewUser {
                 case 2:
                     System.out.println("- Menampilkan Data Game -");
                     for (NodeGames gameList : controllerGame.viewAllGames()) {
-                        gameList.viewGame();
+                        System.out.println("Nama Game: " + gameList.getNamaGame());
+                        System.out.println("Nama Currency: " + gameList.getNamaCurrency());
+                        System.out.println("Items:");
+                        for (Item item : gameList.getItem()) {
+                            System.out.println("  - Nama Item: " + item.getNamaItem());
+                            System.out.println("    Harga: " + item.getHarga());
+                        }
+                        // gameList.viewGame();
                         System.out.println("==============================");
                     }
                     break;
                 case 3:
                     System.out.println("- Info Akun -");
-                    controllerUser.searchUser(Email).viewUser();
+                    System.out.println("Email : " + controllerUser.searchUser(Email).getEmail());;
+                    System.out.println("Password : " + controllerUser.searchUser(Email).getPassword());
+                    System.out.println("PIN : " + controllerUser.searchUser(Email).getPin());
                     break;
                 case 4:
                     System.out.println("- Update Akun -");
