@@ -26,17 +26,18 @@ public class ViewAdmin {
             System.out.println("|1. Tambah Game\t\t\t|");
             System.out.println("|2. Lihat Game\t\t\t|");
             System.out.println("|3. Tambah Item Game\t\t|");
-            System.out.println("|4. Update Game\t\t\t|");
-            System.out.println("|5. Delete Game\t\t\t|");
-            System.out.println("|6. Cari Game\t\t\t|");
-            System.out.println("|7. Lihat Semua User\t\t|");
-            System.out.println("|8. Update User\t\t\t|");
-            System.out.println("|9. Delete User\t\t\t|");
-            System.out.println("|10. View Daftar Harga\t\t|");
-            System.out.println("|11. Tambah Daftar Harga\t|");
-            System.out.println("|12. Update List Harga\t\t|");
-            System.out.println("|13. Delete List Harga\t\t|");
-            System.out.println("|14. Logout\t\t\t|");
+            System.out.println("|4. Update Item Game\t\t|");
+            System.out.println("|5. Update Game\t\t\t|");
+            System.out.println("|6. Delete Game\t\t\t|");
+            System.out.println("|7. Cari Game\t\t\t|");
+            System.out.println("|8. Lihat Semua User\t\t|");
+            System.out.println("|9. Update User\t\t\t|");
+            System.out.println("|10. Delete User\t\t|");
+            System.out.println("|11. View Daftar Harga\t\t|");
+            System.out.println("|12. Tambah Daftar Harga\t|");
+            System.out.println("|13. Update List Harga\t\t|");
+            System.out.println("|14. Delete List Harga\t\t|");
+            System.out.println("|15. Logout\t\t\t|");
             System.out.println("--------------------------------");
             System.out.print("Masukkan Pilihan : ");
             pilih = input.nextInt();
@@ -71,6 +72,18 @@ public class ViewAdmin {
                     controllerGame.insertItem(namaGame, namaItem, harga);
                     break;
                 case 4:
+                    System.out.println("- Tambah Item Game -");
+                    System.out.print("Masukkan Nama Game : ");
+                    namaGame = input.nextLine();
+                    System.out.print("Masukkan Nama Item Yang ingin Diubah : ");
+                    String prevItemName = input.nextLine();
+                    System.out.print("Masukkan Nama item Baru : ");
+                    String newItemName = input.nextLine();
+                    System.out.print("Masukkan Harga Baru : ");
+                    double hargabaru = input.nextDouble();
+                    controllerGame.updateItem(namaGame, prevItemName, newItemName, hargabaru);
+                    break;
+                case 5:
                     System.out.println("- Update Game -");
                     System.out.print("Masukkan Nama Game : ");
                     namaGame = input.nextLine();
@@ -83,13 +96,13 @@ public class ViewAdmin {
                         System.out.println("Game Tidak Ditemukan!");
                     }
                     break;
-                case 5:
+                case 6:
                     System.out.println("- Hapus Game -");
                     System.out.print("Masukkan Nama Game : ");
                     namaGame = input.nextLine();
                     controllerGame.deleteGame(namaGame);
                     break;
-                case 6:
+                case 7:
                     System.out.println("- Pencarian Game -");
                     System.out.print("Masukkan Nama Game : ");
                     namaGame = input.nextLine();
@@ -100,7 +113,7 @@ public class ViewAdmin {
                         System.out.println("Game Tidak Ditemukan!");
                     }
                     break;
-                case 7:
+                case 8:
                     System.out.println("- Menampilkan Data User -");
                     for (NodeUser user : controllerUser.viewAllUser()) {
                         System.out.println("Email : " + user.getEmail());
@@ -110,7 +123,7 @@ public class ViewAdmin {
                         System.out.println("==============================");
                     }
                     break;
-                case 8:
+                case 9:
                     System.out.println(" - Update User - ");
                     System.out.print("Masukkan Email : "); String Email = input.nextLine();
                     NodeUser user = controllerUser.searchUser(Email);
@@ -123,23 +136,23 @@ public class ViewAdmin {
                         controllerUser.updateUser(Email, newPass, newPIN);
                     }
                     break;
-                case 9 :
+                case 10:
                     System.out.println(" - Delete User - ");
                     System.out.print("Masukkan Email : ");
                     Email = input.nextLine();
                     controllerUser.deleteUser(Email);
                     break;
-                case 10:
+                case 11:
                     ArrayList<NodeHarga> viewList = controllerHarga.viewAllHarga();
                     for (NodeHarga nodeHarga : viewList) {
                         System.out.println(nodeHarga.getId() + ". " + "Rp. " +nodeHarga.getHarga());
                     }
                     break;
-                case 11 :
+                case 12:
                     System.out.print("Masukkan Harga Baru : "); double addHarga = input.nextDouble();
                     controllerHarga.insertHarga(addHarga);
                     break;
-                case 12:
+                case 13:
                     ArrayList<NodeHarga> hargaList = controllerHarga.viewAllHarga();
                     for (NodeHarga nodeHarga : hargaList) {
                         System.out.println(nodeHarga.getId() + ". " + "Rp. " +nodeHarga.getHarga());
@@ -148,11 +161,11 @@ public class ViewAdmin {
                     System.out.print("Masukkan Harga Baru : "); double newHarga = input.nextDouble();
                     controllerHarga.updateharga(newId, newHarga);
                     break;
-                case 13:
+                case 14:
                     System.out.println("Masukkan Id Harga :"); int id = input.nextInt();
                     controllerHarga.deleteharga(id);
                     break;
-                case 14 :
+                case 15 :
                     System.out.println(" - Anda Telah Logout - ");
                     break x;
                 default:

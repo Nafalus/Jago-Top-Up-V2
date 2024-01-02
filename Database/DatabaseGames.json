@@ -4,16 +4,16 @@
     "namaCurrency": "Diamond",
     "items": [
       {
-        "namaItem": "booyapass",
-        "harga": 40000.0
+        "namaItem": "battlepass",
+        "harga": 70000.0
       },
       {
-        "namaItem": "1000 dm",
-        "harga": 1000000.0
+        "namaItem": "1000 diamond",
+        "harga": 50000.0
       },
       {
-        "namaItem": "2000 dm",
-        "harga": 5555555.0
+        "namaItem": "2000 diamond",
+        "harga": 100000.0
       }
     ]
   },

@@ -39,12 +39,20 @@ public class NodeGames {
         return this.namaCurrency;
     }
 
-    public ArrayList<Item> getItem(){
+    public ArrayList<Item> getAllItem(){
         return this.items;
     }
 
     public void addItem(String namaItem, double harga) {
         items.add(new Item(namaItem, harga));
+    }
+
+    public void updateItem(ArrayList<Item> listItem){
+        this.items = listItem;
+    }
+
+    public ArrayList<Item> getItem () {
+        return this.items;
     }
 
     public static class Item {

@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 import ModelGSON.ModelGSON;
 import Node.NodeGames;
-
+import Node.NodeGames.Item;
 
 import com.google.gson.reflect.TypeToken;
 public class ModelGames {
     ArrayList<NodeGames> listGame;
+    ArrayList<Item> listItem;
     ModelGSON<NodeGames> modelGsonGame;
 
     public ModelGames() {
@@ -32,9 +33,23 @@ public class ModelGames {
         return game;
     }
 
+    public Item searchItem (String namaItem, ArrayList<Item> listItem){
+        Item item = null;
+        for (Item Item : listItem) {
+            if (Item.getNamaItem().equalsIgnoreCase(namaItem)){
+                return Item;
+            }
+        }
+        return item;
+    }
+
     public ArrayList<NodeGames> getAllGames() {
         return listGame;
     }
+
+    // public ArrayList<Item> getAllItem(String namaGame){
+    //     return this.listItem = listGame;
+    // }
 
     public void updateGame(String namaGame, NodeGames Game) {
         listGame.contains(Game);

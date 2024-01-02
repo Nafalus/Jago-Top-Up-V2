@@ -3,6 +3,7 @@ package Controller;
 
 import Model.ModelGames;
 import Node.NodeGames;
+import Node.NodeGames.Item;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,23 @@ public class ControllerGame {
             modelGames.updateGame(namaGame, game);
         } else {
             System.out.println("Game tidak ditemukan!");
+        }
+    }
+
+    public void updateItem (String namaGame, String prevNamaItem ,String newNamaItem , double harga) {
+        NodeGames game = modelGames.searchGame(namaGame);
+        if (game != null) {
+            ArrayList<Item> listItem = game.getAllItem();
+            Item item = modelGames.searchItem(prevNamaItem, listItem);
+            if (item != null){
+                item.setNamaItem(newNamaItem);
+                item.setHarga(harga);
+                listItem.contains(item);
+            }
+            game.updateItem(listItem);
+            modelGames.updateGame(namaGame, game);
+        } else {
+            System.out.println("Game Tidak Ditemukan!!!");
         }
     }
 
