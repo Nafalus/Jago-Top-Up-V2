@@ -3,7 +3,7 @@
     "email": "Budi",
     "password": "1234",
     "PIN": 5678,
-    "Saldo": 0.0
+    "Saldo": 25000.0
   },
   {
     "email": "Bima",
@@ -15,7 +15,7 @@
     "email": "Franky",
     "password": "futa123",
     "PIN": 4567,
-    "Saldo": 0.0
+    "Saldo": 25000.0
   },
   {
     "email": "nopal",
@@ -33,6 +33,6 @@
     "email": "davin",
     "password": "alpin123",
     "PIN": 8675,
-    "Saldo": 10000.0
+    "Saldo": 50000.0
   }
 ]

@@ -1,5 +1,6 @@
 package View;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import Controller.*;
 import Node.*;
@@ -31,8 +32,11 @@ public class ViewAdmin {
             System.out.println("|7. Lihat Semua User\t\t|");
             System.out.println("|8. Update User\t\t\t|");
             System.out.println("|9. Delete User\t\t\t|");
-            System.out.println("|10. Tambah Daftar Harga\t|");
-            System.out.println("|11. Logout\t\t\t|");
+            System.out.println("|10. View Daftar Harga\t\t|");
+            System.out.println("|11. Tambah Daftar Harga\t|");
+            System.out.println("|12. Update List Harga\t\t|");
+            System.out.println("|13. Delete List Harga\t\t|");
+            System.out.println("|14. Logout\t\t\t|");
             System.out.println("--------------------------------");
             System.out.print("Masukkan Pilihan : ");
             pilih = input.nextInt();
@@ -125,11 +129,30 @@ public class ViewAdmin {
                     Email = input.nextLine();
                     controllerUser.deleteUser(Email);
                     break;
-                case 10 :
-                    System.out.print("Masukkan Harga Baru : "); double newHarga = input.nextDouble();
-                    controllerHarga.insertHarga(newHarga);
+                case 10:
+                    ArrayList<NodeHarga> viewList = controllerHarga.viewAllHarga();
+                    for (NodeHarga nodeHarga : viewList) {
+                        System.out.println(nodeHarga.getId() + ". " + "Rp. " +nodeHarga.getHarga());
+                    }
                     break;
                 case 11 :
+                    System.out.print("Masukkan Harga Baru : "); double addHarga = input.nextDouble();
+                    controllerHarga.insertHarga(addHarga);
+                    break;
+                case 12:
+                    ArrayList<NodeHarga> hargaList = controllerHarga.viewAllHarga();
+                    for (NodeHarga nodeHarga : hargaList) {
+                        System.out.println(nodeHarga.getId() + ". " + "Rp. " +nodeHarga.getHarga());
+                    }
+                    System.out.print("Masukkan Id : "); int newId = input.nextInt();
+                    System.out.print("Masukkan Harga Baru : "); double newHarga = input.nextDouble();
+                    controllerHarga.updateharga(newId, newHarga);
+                    break;
+                case 13:
+                    System.out.println("Masukkan Id Harga :"); int id = input.nextInt();
+                    controllerHarga.deleteharga(id);
+                    break;
+                case 14 :
                     System.out.println(" - Anda Telah Logout - ");
                     break x;
                 default:

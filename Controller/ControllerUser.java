@@ -1,15 +1,18 @@
 package Controller;
 
 import Model.ModelUser;
+import Node.NodeHarga;
 import Node.NodeUser;
 
 import java.util.ArrayList;
 
 public class ControllerUser {
     private ModelUser modelUser;
+    private ControllerHarga controllerHarga;
 
-    public ControllerUser(ModelUser modelUser) {
+    public ControllerUser(ModelUser modelUser, ControllerHarga controllerHarga) {
         this.modelUser = modelUser;
+        this.controllerHarga = controllerHarga;
     }
 
     public ArrayList<NodeUser> viewAllUser() {
@@ -46,36 +49,12 @@ public class ControllerUser {
 
     public void isiSaldo (String Email, int opsiSaldo) {
         NodeUser pengguna = modelUser.searchUser(Email);
-        switch (opsiSaldo) {
-            case 1:
-                pengguna.tambahSaldo(5000);
-                break;
-            case 2:
-                pengguna.tambahSaldo(10000);
-                break;
-            case 3:
-                pengguna.tambahSaldo(15000);
-                break;
-            case 4:
-                pengguna.tambahSaldo(20000);
-                break;
-            case 5:
-                pengguna.tambahSaldo(30000);
-                break;
-            case 6:
-                pengguna.tambahSaldo(50000);
-                break;
-            case 7:
-                pengguna.tambahSaldo(100000);
-                break;
-            case 8:
-                pengguna.tambahSaldo(200000);
-                break;
-            default:
-                System.out.println("INVALID INPUT!");
-                break;
+        ArrayList<NodeHarga> hargaList = controllerHarga.viewAllHarga();
+        try {
+            pengguna.tambahSaldo(hargaList.get(opsiSaldo - 1).getHarga());
+            modelUser.updateUser(Email, pengguna);
+        } catch (Exception e) {
+            System.out.println("Harga Tidak Ditemukkan!!!");
         }
-        // pengguna.tambahSaldo(0);
-        modelUser.updateUser(Email, pengguna);
     }
 }

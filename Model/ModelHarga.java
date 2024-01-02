@@ -58,8 +58,13 @@ public class ModelHarga {
         }
     }
 
+    public ArrayList <NodeHarga> getHargaList (){
+        return this.listHarga;
+    }
+
     public void replaceList(ArrayList<NodeHarga> replaceHarga){
         this.listHarga = replaceHarga;
+        commitData();
     }
 
     private void loadData(){

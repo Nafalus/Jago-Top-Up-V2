@@ -3,18 +3,20 @@ package View;
 import Controller.*;
 import Node.NodeGames;
 import Node.NodeGames.Item;
+import Node.NodeHarga;
 
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class ViewUser {
     private ControllerUser controllerUser;
     private ControllerGame controllerGame;
+    private ControllerHarga controllerHarga;
     private Locale formatRupiah;
 
-    public ViewUser(ControllerUser controllerUser, ControllerGame controllerGame){
+    public ViewUser(ControllerUser controllerUser, ControllerGame controllerGame, ControllerHarga controllerHarga){
         this.controllerUser = controllerUser;
         this.controllerGame = controllerGame;
+        this.controllerHarga = controllerHarga;
         this.formatRupiah = new Locale("id", "ID");
     }
 
@@ -83,16 +85,10 @@ public class ViewUser {
                     controllerUser.updateUser(Email, newPass, newPIN);
                     break;
                 case 5:
-                    //Rencana akan dirombak by Nopal
-                    System.out.println(" - Isi Saldo -");
-                    System.out.println("1. Rp. 5.000");
-                    System.out.println("2. Rp. 10.000");
-                    System.out.println("3. Rp. 15.000");
-                    System.out.println("4. Rp. 20.000");
-                    System.out.println("5. Rp. 30.000");
-                    System.out.println("6. Rp. 50.000");
-                    System.out.println("7. Rp. 100.000");
-                    System.out.println("8. Rp. 200.000");
+                    ArrayList<NodeHarga> hargaList = controllerHarga.viewAllHarga();
+                    for (NodeHarga nodeHarga : hargaList) {
+                        System.out.println(nodeHarga.getId() + ". " + String.format(formatRupiah, "Rp. %,.2f", nodeHarga.getHarga()));
+                    }
                     System.out.print("Pilihan Anda : "); int pilihSaldo = input.nextInt();
                     controllerUser.isiSaldo(Email, pilihSaldo);
                     break;

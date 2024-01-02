@@ -9,10 +9,10 @@ public class Main {
         ModelGames modelGames = new ModelGames();
         ModelAdmin modelAdmin = new ModelAdmin();
         ModelHarga modelHarga = new ModelHarga();
-        ControllerUser controllerUser = new ControllerUser(modeluser);
         ControllerGame controllerGame = new ControllerGame(modelGames);
         ControllerHarga controllerHarga = new ControllerHarga(modelHarga);
-        ViewUser viewuser = new ViewUser(controllerUser, controllerGame);
+        ControllerUser controllerUser = new ControllerUser(modeluser, controllerHarga);
+        ViewUser viewuser = new ViewUser(controllerUser, controllerGame, controllerHarga);
         ViewAdmin viewAdmin = new ViewAdmin(controllerUser, controllerGame, controllerHarga);
         ControllerAdmin controllerAdmin = new ControllerAdmin(modelAdmin);
         ControllerLogin controllerLogin = new ControllerLogin(viewAdmin, viewuser);
