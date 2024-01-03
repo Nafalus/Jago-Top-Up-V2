@@ -3,6 +3,7 @@ package Controller;
 import Model.ModelUser;
 import Node.NodeHarga;
 import Node.NodeUser;
+import Node.NodeGames.Item;
 
 import java.util.ArrayList;
 
@@ -56,5 +57,10 @@ public class ControllerUser {
         } catch (Exception e) {
             System.out.println("Harga Tidak Ditemukkan!!!");
         }
+    }
+
+    public void Pembelian (ArrayList<Item> listItem, String Email){
+        NodeUser pengguna = modelUser.searchUser(Email);
+
     }
 }

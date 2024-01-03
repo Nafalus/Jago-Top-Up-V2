@@ -42,35 +42,43 @@ public class ViewUser {
         System.out.println("-------------------------");
             switch (pilih) {
                 case 1:
-                System.out.println("- Pencarian Game -");
-                    System.out.print("Masukkan Nama Game : ");
-                    String namaGame = input.nextLine();
-                    NodeGames game = controllerGame.searchGames(namaGame);
-                    if (game != null) {
-                        System.out.println("Nama Game: " + game.getNamaGame());
-                        System.out.println("Nama Currency: " + game.getNamaCurrency());
-                        System.out.println("Items:");
-                        for (Item item : game.getItem()) {
-                            System.out.println("  - Nama Item: " + item.getNamaItem());
-                            System.out.println("    Harga: " + item.getHarga());
-                        }
-                    } else {
-                        System.out.println("Game Tidak Ditemukan!");
-                    }
+                    // System.out.println("- Pencarian Game -");
+                    // System.out.print("Masukkan Nama Game : ");
+                    // String namaGame = input.nextLine();
+                    // NodeGames game = controllerGame.searchGames(namaGame);
+                    // if (game != null) {
+                    //     System.out.println("Nama Game: " + game.getNamaGame());
+                    //     System.out.println("Nama Currency: " + game.getNamaCurrency());
+                    //     System.out.println("Items:");
+                    //     for (Item item : game.getItem()) {
+                    //         System.out.println("  - Nama Item: " + item.getNamaItem());
+                    //         System.out.println("    Harga: " + item.getHarga());
+                    //     }
+                    // } else {
+                    //     System.out.println("Game Tidak Ditemukan!");
+                    // }
                     break;
                 case 2:
                     System.out.println("- Menampilkan Data Game -");
                     for (NodeGames gameList : controllerGame.viewAllGames()) {
                         System.out.println("Nama Game: " + gameList.getNamaGame());
                         System.out.println("Nama Currency: " + gameList.getNamaCurrency());
-                        System.out.println("Items:");
-                        for (Item item : gameList.getItem()) {
-                            System.out.println("  - Nama Item: " + item.getNamaItem());
-                            System.out.println("    Harga: " + item.getHarga());
+                            System.out.println("==============================");
                         }
-                        // gameList.viewGame();
-                        System.out.println("==============================");
-                    }
+                        System.out.println("- Pilih Game -");
+                        System.out.print("Masukkan Nama Game : ");
+                        String namaGame = input.nextLine();
+                        NodeGames game = controllerGame.searchGames(namaGame);
+                        if (game != null) {
+                            System.out.println("Items:");
+                            for (Item item : game.getItem()) {
+                                System.out.println("  - Nama Item: " + item.getNamaItem());
+                                System.out.println("    Harga: " + item.getHarga());
+                            }
+                        } else {
+                            System.out.println("Game Tidak Ditemukan!");
+                        }
+                        controllerUser.Pembelian(controllerGame.searchGames(namaGame).getItem(), Email);
                     break;
                 case 3:
                     System.out.println("- Info Akun -");
