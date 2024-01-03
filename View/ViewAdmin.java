@@ -72,7 +72,7 @@ public class ViewAdmin {
                     controllerGame.insertItem(namaGame, namaItem, harga);
                     break;
                 case 4:
-                    System.out.println("- Tambah Item Game -");
+                    System.out.println("- Update Item Game -");
                     System.out.print("Masukkan Nama Game : ");
                     namaGame = input.nextLine();
                     System.out.print("Masukkan Nama Item Yang ingin Diubah : ");
