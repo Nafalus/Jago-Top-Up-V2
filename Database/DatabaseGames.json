@@ -4,14 +4,17 @@
     "namaCurrency": "Diamond",
     "items": [
       {
+        "id": 1,
         "namaItem": "battlepass",
         "harga": 70000.0
       },
       {
+        "id": 2,
         "namaItem": "1000 diamond",
         "harga": 50000.0
       },
       {
+        "id": 3,
         "namaItem": "2000 diamond",
         "harga": 100000.0
       }
@@ -22,12 +25,19 @@
     "namaCurrency": "UC",
     "items": [
       {
+        "id": 1,
         "namaItem": "M4 Glacier",
         "harga": 120000.0
       },
       {
-        "namaItem": "M4 Godzilla",
-        "harga": 200000.0
+        "id": 2,
+        "namaItem": "2000 UC",
+        "harga": 180000.0
+      },
+      {
+        "id": 3,
+        "namaItem": "1000 UC",
+        "harga": 100000.0
       }
     ]
   }

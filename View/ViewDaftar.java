@@ -17,7 +17,7 @@ public class ViewDaftar {
         System.out.println("Masukkan Password Baru : ");
         String password = input.nextLine();
         System.out.println("Masukkan PIN Baru : ");
-        int Pin = input.nextInt();
+        String Pin = input.nextLine();
         double Saldo = 0;
         controllerUser.insertUser(email, password, Pin, Saldo);
     }

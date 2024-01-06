@@ -6,34 +6,31 @@ import java.util.Locale;
 
 import Interface.Node;
 
-public class NodeUser implements Node{
-    private String email;
-    private String password;
-    private int PIN;
+public class NodeUser extends NodeAdmin{
+    private String PIN;
     private double Saldo;
 
-    public NodeUser(String email, String password, int PIN, double Saldo) {
-        this.email = email;
-        this.password = password;
+    public NodeUser(String email, String password, String PIN, double Saldo) {
+        super(email, password);
         this.PIN = PIN;
         this.Saldo = Saldo;
     }
 
-    public void setEmail(String email){
-        this.email = email;
-    }
+    // public void setEmail(String email){
+    //     this.email = email;
+    // }
 
-    public String getEmail(){
-        return this.email;
-    }
+    // public String getEmail(){
+    //     return this.email;
+    // }
 
-    public void setPassword(String password){
-        this.password = password;
-    }
+    // public void setPassword(String password){
+    //     this.password = password;
+    // }
 
-    public String getPassword(){
-        return this.password;
-    }
+    // public String getPassword(){
+    //     return this.password;
+    // }
 
     // public void viewUser(){
     //     System.out.println("Email : " + getEmail());
@@ -42,11 +39,11 @@ public class NodeUser implements Node{
     //     System.out.println("Saldo : " + this.Saldo);
     // }
 
-    public void setPIN(int PIN){
+    public void setPIN(String PIN){
         this.PIN = PIN;
     }
 
-    public int getPin(){
+    public String getPin(){
         return this.PIN;
     }
 

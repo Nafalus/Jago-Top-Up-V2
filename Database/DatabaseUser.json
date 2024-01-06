@@ -1,38 +1,44 @@
 [
   {
+    "PIN": "5678",
+    "Saldo": 5000.0,
     "email": "Budi",
-    "password": "1234",
-    "PIN": 5678,
-    "Saldo": 25000.0
+    "password": "1234"
   },
   {
+    "PIN": "3214",
+    "Saldo": 85000.0,
     "email": "Bima",
-    "password": "bima1234",
-    "PIN": 3214,
-    "Saldo": 85000.0
+    "password": "bima1234"
   },
   {
+    "PIN": "4567",
+    "Saldo": 25000.0,
     "email": "Franky",
-    "password": "futa123",
-    "PIN": 4567,
-    "Saldo": 25000.0
+    "password": "futa123"
   },
   {
+    "PIN": "7890",
+    "Saldo": 360000.0,
     "email": "nopal",
-    "password": "wompwomp123",
-    "PIN": 7890,
-    "Saldo": 360000.0
+    "password": "wompwomp123"
   },
   {
+    "PIN": "3456",
+    "Saldo": 100000.0,
     "email": "gendy",
-    "password": "goib123",
-    "PIN": 3456,
-    "Saldo": 100000.0
+    "password": "goib123"
   },
   {
+    "PIN": "5435",
+    "Saldo": 5000.0,
     "email": "davin",
-    "password": "alpin123",
-    "PIN": 8675,
-    "Saldo": 50000.0
+    "password": "alpin123"
+  },
+  {
+    "PIN": "9812",
+    "Saldo": 0.0,
+    "email": "jarwo",
+    "password": "adit123"
   }
 ]

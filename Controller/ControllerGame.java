@@ -26,7 +26,7 @@ public class ControllerGame {
     public void insertItem(String namaGame, String namaItem, double harga) {
         NodeGames game = modelGames.searchGame(namaGame);
         if (game != null) {
-            game.addItem(namaItem, harga);
+            game.addItem(modelGames.getLastIdItem(namaGame) + 1, namaItem, harga);
             modelGames.updateGame(namaGame, game);
         } else {
             System.out.println("Game tidak ditemukan!");

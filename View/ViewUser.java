@@ -69,16 +69,26 @@ public class ViewUser {
                         System.out.print("Masukkan Nama Game : ");
                         String namaGame = input.nextLine();
                         NodeGames game = controllerGame.searchGames(namaGame);
+                        System.out.println("- Menampilkan Item Game -");
                         if (game != null) {
                             System.out.println("Items:");
-                            for (Item item : game.getItem()) {
-                                System.out.println("  - Nama Item: " + item.getNamaItem());
-                                System.out.println("    Harga: " + item.getHarga());
+                            for (Item item : game.getAllItem()) {
+                                System.out.println(item.getId() + ". " + item.getNamaItem());
+                                System.out.println("   Harga: " + item.getHarga());
                             }
                         } else {
                             System.out.println("Game Tidak Ditemukan!");
                         }
-                        controllerUser.Pembelian(controllerGame.searchGames(namaGame).getItem(), Email);
+                        System.out.println("==============================");
+                        System.out.println(" - Pilih Item -");
+                        System.out.print("Masukkan Pilihan : "); int id = input.nextInt();
+                        input.nextLine();
+                        if (controllerUser.cekHarga(id, game.getAllItem(), Email)) {
+                            System.out.println(" - Masukkan PIN Anda -"); String PIN = input.nextLine();
+                            controllerUser.Pembelian(id, game.getAllItem(), PIN, Email);
+                        } else {
+                            System.out.println(" - Saldo Anda TIdak Cukup, Silahkan Lakukan Pengisian Saldo -");
+                        }
                     break;
                 case 3:
                     System.out.println("- Info Akun -");
@@ -89,7 +99,7 @@ public class ViewUser {
                 case 4:
                     System.out.println("- Update Akun -");
                     System.out.print("Masukkan Password Baru : "); String newPass = input.nextLine(); 
-                    System.out.print("Masukkan PIN Baru : "); int newPIN = input.nextInt();
+                    System.out.print("Masukkan PIN Baru : "); String newPIN = input.nextLine();
                     controllerUser.updateUser(Email, newPass, newPIN);
                     break;
                 case 5:

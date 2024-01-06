@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import Controller.*;
 import Node.*;
+import Node.NodeGames.Item;
 
 public class ViewAdmin {
     private ControllerGame controllerGame;
@@ -47,18 +48,37 @@ public class ViewAdmin {
                 case 1:
                     System.out.println("- Tambah Game -");
                     System.out.print("Masukkan Nama Game : ");
-                    String namaGame = input.nextLine();
+                    String addNamaGame = input.nextLine();
                     System.out.print("Masukkan Nama Currency : ");
                     String namaCurrency = input.nextLine();
-                    controllerGame.insertGame(namaGame, namaCurrency);
+                    controllerGame.insertGame(addNamaGame, namaCurrency);
                     System.out.println("Berhasil Menambahkan Game");
                     break;
                 case 2:
                     System.out.println("- Menampilkan Data Game -");
-                    for (NodeGames game : controllerGame.viewAllGames()) {
-                        game.viewGame();
-                        System.out.println("==============================");
-                    }
+                    for (NodeGames gameList : controllerGame.viewAllGames()) {
+                        System.out.println("Nama Game: " + gameList.getNamaGame());
+                        System.out.println("Nama Currency: " + gameList.getNamaCurrency());
+                            System.out.println("==============================");
+                        }
+                        System.out.println("- Pilih Game -");
+                        System.out.print("Masukkan Nama Game : ");
+                        String namaGame = input.nextLine();
+                        NodeGames game = controllerGame.searchGames(namaGame);
+                        if (game != null) {
+                            System.out.println("Items:");
+                            for (Item item : game.getAllItem()) {
+                                System.out.println(item.getId() + ". " + item.getNamaItem());
+                                System.out.println("   Harga: " + item.getHarga());
+                            }
+                        } else {
+                            System.out.println("Game Tidak Ditemukan!");
+                        }
+                    // System.out.println("- Menampilkan Data Game -");
+                    // for (NodeGames game : controllerGame.viewAllGames()) {
+                    //     game.viewGame();
+                    //     System.out.println("==============================");
+                    // }
                     break;
                 case 3:
                     System.out.println("- Tambah Item Game -");
@@ -87,8 +107,8 @@ public class ViewAdmin {
                     System.out.println("- Update Game -");
                     System.out.print("Masukkan Nama Game : ");
                     namaGame = input.nextLine();
-                    NodeGames game = controllerGame.searchGames(namaGame);
-                    if (game != null) {
+                    NodeGames gameUpdate = controllerGame.searchGames(namaGame);
+                    if (gameUpdate != null) {
                         System.out.println("Ubah Nama Currency : ");
                         String newCurrency = input.nextLine();
                         controllerGame.updateGames(namaGame, newCurrency);
@@ -132,7 +152,7 @@ public class ViewAdmin {
                     }
                     else {
                         System.out.print("Masukkan Password Baru : "); String newPass = input.nextLine(); 
-                        System.out.print("Masukkan PIN Baru : "); int newPIN = input.nextInt();
+                        System.out.print("Masukkan PIN Baru : "); String newPIN = input.nextLine();
                         controllerUser.updateUser(Email, newPass, newPIN);
                     }
                     break;

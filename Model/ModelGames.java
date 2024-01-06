@@ -43,6 +43,20 @@ public class ModelGames {
         return item;
     }
 
+    public int getLastIdItem (String namaGame){
+        NodeGames Game = searchGame(namaGame);
+        if (Game.getAllItem() != null){
+            int lastID=0;
+            for (Item listItem : Game.getAllItem()) {
+                lastID = listItem.getId();
+            }
+            return lastID;
+        }
+        else {
+            return 0;
+        }
+    }
+
     public ArrayList<NodeGames> getAllGames() {
         return listGame;
     }

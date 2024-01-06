@@ -43,25 +43,31 @@ public class NodeGames {
         return this.items;
     }
 
-    public void addItem(String namaItem, double harga) {
-        items.add(new Item(namaItem, harga));
+    public void addItem(int id, String namaItem, double harga) {
+        items.add(new Item(id, namaItem, harga));
     }
 
     public void updateItem(ArrayList<Item> listItem){
         this.items = listItem;
     }
 
-    public ArrayList<Item> getItem () {
-        return this.items;
-    }
-
     public static class Item {
+        private int id;
         private String namaItem;
         private double harga;
 
-        public Item(String namaItem, double harga) {
+        public Item(int id, String namaItem, double harga) {
+            this.id = id;
             this.namaItem = namaItem;
             this.harga = harga;
+        }
+
+        public void setId(int id){
+            this.id = id;
+        }
+    
+        public int getId(){
+            return this.id;
         }
 
         public void setNamaItem(String namaItem){

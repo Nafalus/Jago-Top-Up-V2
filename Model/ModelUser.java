@@ -34,7 +34,7 @@ public class ModelUser {
         return ListUser;
     }
 
-    public void updateUser(String username, NodeUser user){
+    public void updateUser(NodeUser user){
         ListUser.contains(user);
         commitData();
     }
