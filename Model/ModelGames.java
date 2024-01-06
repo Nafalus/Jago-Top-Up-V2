@@ -61,10 +61,6 @@ public class ModelGames {
         return listGame;
     }
 
-    // public ArrayList<Item> getAllItem(String namaGame){
-    //     return this.listItem = listGame;
-    // }
-
     public void updateGame(String namaGame, NodeGames Game) {
         listGame.contains(Game);
         commitData();

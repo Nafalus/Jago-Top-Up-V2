@@ -4,8 +4,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-import Interface.Node;
-
 public class NodeUser extends NodeAdmin{
     private String PIN;
     private double Saldo;
@@ -15,29 +13,6 @@ public class NodeUser extends NodeAdmin{
         this.PIN = PIN;
         this.Saldo = Saldo;
     }
-
-    // public void setEmail(String email){
-    //     this.email = email;
-    // }
-
-    // public String getEmail(){
-    //     return this.email;
-    // }
-
-    // public void setPassword(String password){
-    //     this.password = password;
-    // }
-
-    // public String getPassword(){
-    //     return this.password;
-    // }
-
-    // public void viewUser(){
-    //     System.out.println("Email : " + getEmail());
-    //     System.out.println("Password : " + getPassword());
-    //     System.out.println("Pin  : " + this.PIN);
-    //     System.out.println("Saldo : " + this.Saldo);
-    // }
 
     public void setPIN(String PIN){
         this.PIN = PIN;

@@ -74,11 +74,6 @@ public class ViewAdmin {
                         } else {
                             System.out.println("Game Tidak Ditemukan!");
                         }
-                    // System.out.println("- Menampilkan Data Game -");
-                    // for (NodeGames game : controllerGame.viewAllGames()) {
-                    //     game.viewGame();
-                    //     System.out.println("==============================");
-                    // }
                     break;
                 case 3:
                     System.out.println("- Tambah Item Game -");

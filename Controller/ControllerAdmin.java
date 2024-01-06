@@ -11,10 +11,6 @@ public class ControllerAdmin {
         this.modelAdmin = modelAdmin;
     }
 
-    // public ArrayList<NodeGames> viewAllAdmin() {
-    //     return modelAdmin.getAllGames();
-    // }
-
     public void insertAdmin(String email,String password) {
         modelAdmin.addAdmin(new NodeAdmin(email, password));
     }
