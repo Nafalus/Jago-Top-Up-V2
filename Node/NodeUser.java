@@ -41,9 +41,9 @@ public class NodeUser extends NodeAdmin{
         this.listHistori.add(histori);
     }
 
-    // public void setHistori (Histori histori){
-    //     this 
-    // }
+    public ArrayList<Histori> getAllHistori (){
+        return this.listHistori;
+    }
 
     //Sementara(Masih Bisa Berubah)!!!
     public static class Histori {
@@ -59,6 +59,10 @@ public class NodeUser extends NodeAdmin{
             this.namaGame = namaGame;
             this.namaItem = namaItem;
             this.Nominal = Nominal;
+        }
+
+        public Boolean getTipe(){
+            return this.tipe;
         }
 
         private String setTanggal () {
@@ -79,7 +83,7 @@ public class NodeUser extends NodeAdmin{
             return this.namaItem;
         }
 
-        public double Nominal(){
+        public double getNominal(){
             return this.Nominal;
         }
     }

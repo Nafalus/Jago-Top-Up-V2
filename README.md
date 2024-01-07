@@ -8,13 +8,18 @@
 
 - Delete Item (Done)
 
-- Histori/Invoice (Logic Sudah Selesai, tinggal menampilkan di view User dan Admin)
+- Histori/Invoice (Done)
 
-- Histori Pengisian Saldo (belum)
+- Histori Pengisian Saldo (Done)
 
 - GUI (Tidak Jadi)
+
+- Dikarenakan GUI Tidak Jadi, tampilan program perlu Dirapikan sedikit, ben seng delok gk ngelu (Tugas e Gendy)
 
 
 -> dan Yang paling penting <-
 
 - Gendy Ghoib :V (Ini Sudah Jelas wkwkwk)
+
+
+!!!SILAHKAN DITEST, KALAU ADA ERROR NANTI BISA DEPERBAIKI SEGERA!!!
