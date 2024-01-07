@@ -6,9 +6,9 @@
 
 - OverLoading/Overriding (Done)
 
-- Delete Item (Belum)
+- Delete Item (Done)
 
-- Histori/Invoice (Belum)
+- Histori/Invoice (Logic Sudah Selesai, tinggal menampilkan di view User dan Admin)
 
 - Histori Pengisian Saldo (belum)
 

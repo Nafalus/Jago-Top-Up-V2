@@ -50,6 +50,26 @@ public class ControllerGame {
         }
     }
 
+    public void deleteItem (String namaGame, int id){
+        NodeGames game = modelGames.searchGame(namaGame);
+        ArrayList<Item> Items = game.getAllItem();
+        if (Items != null) {
+            Items.remove(id - 1);
+            ArrayList<Item> itemList = Items;
+            ArrayList<Item> replaceList = new ArrayList<Item>();
+            int i = 1;
+            for (Item item : itemList) {
+                item.setId(i);
+                replaceList.add(item);
+                i++;
+            }
+            game.setItem(replaceList);
+            modelGames.updateGame(namaGame, game);
+        } else {
+            System.out.println("Game Tidak Ditemukan!!!");
+        }
+    }
+
     public void updateGames(String namaGame, String newCurrency) {
         NodeGames game = modelGames.searchGame(namaGame);
         if (game != null) {

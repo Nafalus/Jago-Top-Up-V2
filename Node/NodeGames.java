@@ -51,6 +51,10 @@ public class NodeGames {
         this.items = listItem;
     }
 
+    public void setItem (ArrayList<Item> listItem){
+        this.items = listItem;
+    }
+
     public static class Item {
         private int id;
         private String namaItem;

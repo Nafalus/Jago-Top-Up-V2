@@ -3,15 +3,18 @@ package Node;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.ArrayList;
 
 public class NodeUser extends NodeAdmin{
     private String PIN;
     private double Saldo;
+    private ArrayList<Histori> listHistori;
 
     public NodeUser(String email, String password, String PIN, double Saldo) {
         super(email, password);
         this.PIN = PIN;
         this.Saldo = Saldo;
+        this.listHistori = new ArrayList<>();
     }
 
     public void setPIN(String PIN){
@@ -34,14 +37,24 @@ public class NodeUser extends NodeAdmin{
         return this.Saldo;
     }
 
+    public void addHistrori (Histori histori){
+        this.listHistori.add(histori);
+    }
+
+    // public void setHistori (Histori histori){
+    //     this 
+    // }
+
     //Sementara(Masih Bisa Berubah)!!!
     public static class Histori {
+        private boolean tipe;
         private String Tanggal;
         private String namaGame;
         private String namaItem;
         private double Nominal;
 
-        public Histori (String namaGame, String namaItem, double Nominal) {
+        public Histori (boolean tipe, String namaGame, String namaItem, double Nominal) {
+            this.tipe = tipe;
             this.Tanggal = setTanggal();
             this.namaGame = namaGame;
             this.namaItem = namaItem;

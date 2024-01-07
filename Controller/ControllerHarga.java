@@ -4,7 +4,6 @@ import Model.ModelHarga;
 import Node.NodeHarga;
 import java.util.ArrayList;
 
-//Belum Selesai(kurang update dan delete) by Nopal
 public class ControllerHarga {
     private ModelHarga modelHarga;
 

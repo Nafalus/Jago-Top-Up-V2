@@ -4,6 +4,7 @@ import Model.ModelUser;
 import Node.NodeHarga;
 import Node.NodeUser;
 import Node.NodeGames.Item;
+import Node.NodeUser.Histori;
 
 import java.util.ArrayList;
 
@@ -74,13 +75,15 @@ public class ControllerUser {
         }
     }
 
-    public void Pembelian (int id, ArrayList<Item> listItem, String PIN, String Email){
+    public void Pembelian (int id, String namaGame ,ArrayList<Item> listItem, String PIN, String Email){
         NodeUser pengguna = modelUser.searchUser(Email);
         double hargaItem = 0;
+        String namaItem = null;
         if (pengguna.getPin().equalsIgnoreCase(PIN)) {
             for (Item item : listItem) {
                 if (id == item.getId()) {
                     hargaItem = item.getHarga();
+                    namaItem = item.getNamaItem();
                 }
             }
             System.out.println(" - Pembelian Item Game Berhasil -");
@@ -88,6 +91,12 @@ public class ControllerUser {
         } else {
             System.out.println(" - PIN yg anda Masukkan Tidak Valid -");
         }
+        pengguna.addHistrori(createHistori(false, namaGame ,namaItem, hargaItem));
         modelUser.updateUser(pengguna);
+    }
+
+    public Histori createHistori (Boolean tipe, String namaGame,String namaItem, double Nominal) {
+        Histori histori = new Histori (tipe, namaGame, namaItem, Nominal);
+        return histori;
     }
 }

@@ -85,7 +85,7 @@ public class ViewUser {
                         input.nextLine();
                         if (controllerUser.cekHarga(id, game.getAllItem(), Email)) {
                             System.out.println(" - Masukkan PIN Anda -"); String PIN = input.nextLine();
-                            controllerUser.Pembelian(id, game.getAllItem(), PIN, Email);
+                            controllerUser.Pembelian(id, namaGame ,game.getAllItem(), PIN, Email);
                         } else {
                             System.out.println(" - Saldo Anda TIdak Cukup, Silahkan Lakukan Pengisian Saldo -");
                         }

@@ -40,5 +40,20 @@
     "Saldo": 0.0,
     "email": "jarwo",
     "password": "adit123"
+  },
+  {
+    "PIN": "7685",
+    "Saldo": 20000.0,
+    "listHistori": [
+      {
+        "tipe": false,
+        "Tanggal": "07 Januari 2024 15:43:32",
+        "namaGame": "pubg",
+        "namaItem": "2000 UC",
+        "Nominal": 180000.0
+      }
+    ],
+    "email": "subagio",
+    "password": "haha123"
   }
 ]
