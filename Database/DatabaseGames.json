@@ -35,5 +35,42 @@
         "harga": 500000.0
       }
     ]
+  },
+  {
+    "namaGame": "Genshin Impact",
+    "namaCurrency": "Genesis Crystal",
+    "items": [
+      {
+        "id": 1,
+        "namaItem": "1000 Genesis",
+        "harga": 300000.0
+      },
+      {
+        "id": 2,
+        "namaItem": "Welkin",
+        "harga": 60000.0
+      },
+      {
+        "id": 3,
+        "namaItem": "3000 genesis",
+        "harga": 500000.0
+      }
+    ]
+  },
+  {
+    "namaGame": "Mobile Legend",
+    "namaCurrency": "Diamond",
+    "items": [
+      {
+        "id": 1,
+        "namaItem": "100 dm",
+        "harga": 15000.0
+      },
+      {
+        "id": 2,
+        "namaItem": "200 dm",
+        "harga": 30000.0
+      }
+    ]
   }
 ]
