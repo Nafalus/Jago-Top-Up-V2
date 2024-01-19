@@ -74,6 +74,34 @@
         "namaGame": "pubg",
         "namaItem": "10000 UC",
         "Nominal": 500000.0
+      },
+      {
+        "tipe": true,
+        "Tanggal": "16 Januari 2024 13:49:37",
+        "namaGame": "Isi Saldo",
+        "namaItem": "IsiSaldo",
+        "Nominal": 200000.0
+      },
+      {
+        "tipe": true,
+        "Tanggal": "16 Januari 2024 13:49:40",
+        "namaGame": "Isi Saldo",
+        "namaItem": "IsiSaldo",
+        "Nominal": 200000.0
+      },
+      {
+        "tipe": true,
+        "Tanggal": "16 Januari 2024 13:49:59",
+        "namaGame": "Isi Saldo",
+        "namaItem": "IsiSaldo",
+        "Nominal": 100000.0
+      },
+      {
+        "tipe": false,
+        "Tanggal": "16 Januari 2024 13:51:04",
+        "namaGame": "genshin impact",
+        "namaItem": "3000 genesis",
+        "Nominal": 500000.0
       }
     ],
     "email": "nopal",
